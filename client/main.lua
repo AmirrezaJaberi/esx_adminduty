@@ -52,7 +52,7 @@ AddEventHandler('esx_adminduty:DeleteVehicle', function ()
     end
 end)
 
-------------------- Show Admins -------------------
+------------------- Add Command Suggestion -------------------
 RegisterNetEvent('esx_adminduty:AddCommandSuggestion')
 AddEventHandler('esx_adminduty:AddCommandSuggestion', function ()
     TriggerEvent('chat:addSuggestion', '/setjob', 'Change or Set Job For Player', {
@@ -141,6 +141,40 @@ AddEventHandler('esx_adminduty:AddCommandSuggestion', function ()
     TriggerEvent('chat:addSuggestion', '/fix', 'Fix Vehicle', {
         { name="ID", help="Player ID" },
     })
+end)
+
+------------------- Remove Command Suggestion -------------------
+RegisterNetEvent('esx_adminduty:RemoveCommandSuggestion')
+AddEventHandler('esx_adminduty:RemoveCommandSuggestion', function ()
+    TriggerEvent('chat:removeSuggestion', '/setjob')
+    TriggerEvent('chat:removeSuggestion', '/setmoney')
+    TriggerEvent('chat:removeSuggestion', '/aduty')
+    TriggerEvent('chat:removeSuggestion', '/removeweapon')
+    TriggerEvent('chat:removeSuggestion', '/kick')
+    TriggerEvent('chat:removeSuggestion', '/freeze')
+    TriggerEvent('chat:removeSuggestion', '/unfreeze')
+    TriggerEvent('chat:removeSuggestion', '/slay')
+    TriggerEvent('chat:removeSuggestion', '/goto')
+    TriggerEvent('chat:removeSuggestion', '/bring')
+    TriggerEvent('chat:removeSuggestion', '/announce')
+    TriggerEvent('chat:removeSuggestion', '/tpm')
+    TriggerEvent('chat:removeSuggestion', '/getinfo')
+    TriggerEvent('chat:removeSuggestion', '/changeped')
+    TriggerEvent('chat:removeSuggestion', '/resetped')
+    TriggerEvent('chat:removeSuggestion', '/setarmor')
+    TriggerEvent('chat:removeSuggestion', '/heal')
+    TriggerEvent('chat:removeSuggestion', '/revive')
+    TriggerEvent('chat:removeSuggestion')
+    TriggerEvent('chat:removeSuggestion', '/dv')
+    TriggerEvent('chat:removeSuggestion', '/giveitem')
+    TriggerEvent('chat:removeSuggestion', '/giveweapon')
+    TriggerEvent('chat:removeSuggestion', '/clearinventory')
+    TriggerEvent('chat:removeSuggestion', '/clearloadout')
+    TriggerEvent('chat:removeSuggestion', '/setgroup')
+    TriggerEvent('chat:removeSuggestion', '/save')
+    TriggerEvent('chat:removeSuggestion', '/saveall')
+    TriggerEvent('chat:removeSuggestion', '/noclip')
+    TriggerEvent('chat:removeSuggestion', '/fix')
 end)
 
 ------------------- Show Admins -------------------
