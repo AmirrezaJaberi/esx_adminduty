@@ -402,7 +402,7 @@ Citizen.CreateThread(function ()
         local currentPos = GetEntityCoords(currentPed)
         local cx,cy,cz = table.unpack(currentPos)
         cz = cz + 1.2
-        local label = "~r~"
+        local label = Config.Tag.color
          if CanShowOwn then
              ESX.Game.Utils.DrawText3D(vector3(cx,cy,cz), label .. GetPlayerName(PlayerId()), 1.5)
          end
