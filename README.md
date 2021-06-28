@@ -2,14 +2,16 @@
 New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 ### Requirements
 * Base
-  * [es_extended](https://github.com/esx-framework/es_extended/archive/refs/tags/v1-final.zip
+  * [es_extended V1](https://github.com/esx-framework/es_extended/archive/refs/tags/v1-final.zip
 * ESX Status Support
   * [esx_status](https://github.com/ESX-Org/esx_status)
   * [esx_basicneeds](https://github.com/esx-framework/esx_basicneeds)
 * ESX Job
   * [esx_ambulancejob](https://github.com/esx-framework/esx_ambulancejob)
 ## Installation
+- Delete `es_extneded/server/commands.lua`
 - Add `start esx_adminduty` to your server.cfg  
+- Have Fun 😁 
 
 ## Commands
 **/info** Player Information
@@ -56,7 +58,7 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 
 **/saveall** Save All Player (ESX)
 
-**/noclip** Noclip Admin
+**/noclip** Noclip Admin (ESX Noclip Command)
 
  **/fix** Fix Vehicel Player
  
