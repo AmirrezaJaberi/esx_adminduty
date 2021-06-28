@@ -2,7 +2,7 @@
 New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 ### Requirements
 * Base
-  * [es_extended V1](https://github.com/esx-framework/es_extended/archive/refs/tags/v1-final.zip
+  * [es_extended V1](https://github.com/esx-framework/es_extended/archive/refs/tags/v1-final.zip)
 * ESX Status Support
   * [esx_status](https://github.com/ESX-Org/esx_status)
   * [esx_basicneeds](https://github.com/esx-framework/esx_basicneeds)
