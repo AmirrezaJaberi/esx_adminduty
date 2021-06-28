@@ -1,0 +1,18 @@
+Locales['en'] = {
+  ['not_admin']       = "You Are Not ^1Admin^0 !!!",
+  ['not_duty']        = "You Can't Use This Command When You Are ^1Off Duty^0 !!",
+  ['not_mark']        = "~y~Your Are~s~ ~r~Not Mark~s~ ~y~Any Where~s~ !!",
+  ['not_args']        = "Write any thing",
+  ['not_avalble']     = "Player ^1Not^0 Avalable !!",
+  ['off_duty']        = "Your Are Now ^1Off Duty^0 !!",
+  ['on_duty']         = "You Are Now ^2On Duty^0 !!",
+  ['kick_self']       = "You Can't Kick Your Self !!",
+  ['self_heal']       = "You Have Healed !!",
+  ['self_revive']     = "You Have Revive Your Self !!",
+  ['give_weapon']     = "You Have Give^3 %s ^0to^3 %s",
+  ['clear_inventory'] = "%s ,Inventory Successfully deleted",
+  ['clear_loadout']   = "%s ,loadout Successfully deleted",
+  ['set_group']       = "You Are Change^1 %s group to^2 %s",
+  ['add_armor']       = "You Are Add^3 %s Armor for^1 %s",
+  ['change_ped']      = "You Are Changeed Your Ped To :^3 %s",
+}
