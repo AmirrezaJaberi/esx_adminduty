@@ -14,8 +14,8 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 - Have Fun 😁 
 
 ## Add Or Change Group Command
-```
-for example : 
+for example :
+``` 
    if xPlayer.getGroup() == "admin" then
 ```
 Change to :
