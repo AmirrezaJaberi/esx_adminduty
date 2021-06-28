@@ -13,6 +13,14 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 - Add `start esx_adminduty` to your server.cfg  
 - Have Fun 😁 
 
+## Add Or Change Group Command
+```
+for example : 
+   if xPlayer.getGroup() == "admin" then
+Change to :
+   if xPlayer.getGroup() == "admin" or xPlayer.getGroup() == "superadmin" then
+```
+
 ## Commands
 **/info** Player Information
 
