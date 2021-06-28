@@ -79,7 +79,8 @@ Change to :
  
 ## Config
 - Your Can [Enable / Disable] Tag Form `esx_adminduty/config.lua` Part `Config.Tag` Change `enable` To `true or false`
-- You Can Change Tag Color (RGB) `Config.Tag/color/r g b` 😃
+- You Can Change Tag Color (RGB) `Config.Tag/color/~r~` 😃
+- You Can Change Admin God Mode (When OnDuty) 
 - You Can Set Admin Log From `Config.Log` (Developer Tools Avalable !!) 
 
 ## Copyright
