@@ -72,7 +72,9 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 - You Can Change Tag Color (RGB) `Config.Tag/color/r g b` 😃
 - You Can Set Admin Log From `Config.Log` (Developer Tools Avalable !!) 
 
-
-`Copyright © Amirreza Jaberi`
-`All rights reserved`
+## Copyright
+```
+Copyright © Amirreza Jaberi
+All rights reserved
+```
 
