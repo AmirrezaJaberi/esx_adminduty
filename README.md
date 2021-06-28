@@ -71,3 +71,8 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 - Your Can [Enable / Disable] Tag Form `esx_adminduty/config.lua` Part `Config.Tag` Change `enable` To `true or false`
 - You Can Change Tag Color (RGB) `Config.Tag/color/r g b` 😃
 - You Can Set Admin Log From `Config.Log` (Developer Tools Avalable !!) 
+
+
+`Copyright © Amirreza Jaberi`
+`All rights reserved`
+
