@@ -76,6 +76,8 @@ Change to :
  
  **/heal [ID]** Heal A Player
  
+  **/tp [X] [Y] [Z]** Heal A Player
+ 
  
 ## Config
 - Your Can [Enable / Disable] Tag Form `esx_adminduty/config.lua` Part `Config.Tag` Change `enable` To `true or false`
