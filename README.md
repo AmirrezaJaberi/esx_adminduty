@@ -60,7 +60,7 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 
 **/noclip** Noclip Admin (ESX Noclip Command)
 
- **/fix** Fix Vehicel Player
+ **/fix [ID]** Fix Vehicel Player
  
  **/revive [ID]** Revive A Player
  
