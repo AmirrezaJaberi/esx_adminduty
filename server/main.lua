@@ -243,6 +243,24 @@ RegisterCommand('removeweapon', function (source, args)
 end)
 
 ---------- Aduty ----------
+RegisterCommand('tp', function (source, args)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    if xPlayer.getGroup() == "admin" then
+        if xPlayer.get('duty') then
+            if args[1] and args[2] and args[3] then
+                TriggerClientEvent('esx_adminduty:TeleportToCoords', source, tonumber(args[1]), tonumber(args[2]), tonumber(args[3]))
+            else
+                TriggerClientEvent('chatMessage', source, "[SYSTEM]", {255, 0, 0}, _U('not_args'))
+            end
+        else
+            TriggerClientEvent('chatMessage', source, "[SYSTEM]", {255, 0, 0}, _U"not_duty")
+        end
+        else
+        TriggerClientEvent('chatMessage', source, "[SYSTEM]", {255, 0, 0}, _U('not_admin'))
+    end
+end)
+
+---------- Aduty ----------
 RegisterCommand('aduty', function (source)
     local xPlayer = ESX.GetPlayerFromId(source)
     if xPlayer.getGroup() == "admin" then
@@ -831,5 +849,3 @@ function SetGroupLog(SName, TName, LRank, NRank)
         ["Content-Type"] = "application/json"
     })
 end
-
-------------------------------
