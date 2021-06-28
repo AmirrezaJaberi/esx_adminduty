@@ -30,7 +30,7 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 
 **/freeze [ID]** Freeze A Player
 
-**/unfreeze [ID]**Unfreeze A Player
+**/unfreeze [ID]** Unfreeze A Player
 
 **/kick [ID] [Resson]** Kick A Player
 
