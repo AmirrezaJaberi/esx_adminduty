@@ -22,6 +22,13 @@ AddEventHandler('esx_adminduty:ChangeTagOwn', function (status)
     CanShowOwn = status
 end)
 
+----------------- Teleport ----------------
+RegisterNetEvent('esx_adminduty:TeleportToCoords')
+AddEventHandler('esx_adminduty:TeleportToCoords', function (x , y , z)
+    local pped = PlayerPedId()
+    SetEntityCoords(pped, x, y, z, 0, 0, 0)
+end)
+
 
 ----------------- Duty Handeler ----------------
 RegisterNetEvent('esx_adminduty:DutyMe')
@@ -129,6 +136,11 @@ AddEventHandler('esx_adminduty:AddCommandSuggestion', function ()
         { name="Item", help="For Example : phone" },
         { name="Ammount", help="For Example : 10" },
     })
+    TriggerEvent('chat:addSuggestion', '/tp', 'Teleport To Coords', {
+        { name="X", help="X Pos" },
+        { name="Y", help="Y Pos" },
+        { name="Z", help="Z Pos" },
+    })
     TriggerEvent('chat:addSuggestion', '/giveweapon', 'Give Weapon To Player', {
         { name="ID", help="Player ID" },
         { name="Weapon", help="For Example : weapon_smg" },
@@ -175,7 +187,7 @@ AddEventHandler('esx_adminduty:RemoveCommandSuggestion', function ()
     TriggerEvent('chat:removeSuggestion', '/setarmor')
     TriggerEvent('chat:removeSuggestion', '/heal')
     TriggerEvent('chat:removeSuggestion', '/revive')
-    TriggerEvent('chat:removeSuggestion')
+    TriggerEvent('chat:removeSuggestion', '/tp')
     TriggerEvent('chat:removeSuggestion', '/dv')
     TriggerEvent('chat:removeSuggestion', '/giveitem')
     TriggerEvent('chat:removeSuggestion', '/giveweapon')
