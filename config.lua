@@ -4,6 +4,9 @@ Config = {}
 -------- Language --------
 Config.Locale = 'en'
 
+-------- Duty Setting --------
+Config.UseGodeMode = true
+
 -------- Server About --------
 Config.Server = {
     Name    = "Your Server Name",
