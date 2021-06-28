@@ -22,6 +22,18 @@ AddEventHandler('esx_adminduty:ChangeTagOwn', function (status)
     CanShowOwn = status
 end)
 
+
+----------------- Duty Handeler ----------------
+RegisterNetEvent('esx_adminduty:DutyMe')
+AddEventHandler('esx_adminduty:DutyMe', function (can)
+    local pped = PlayerPedId()
+    if can and Config.UseGodeMode then
+        SetEntityInvincible(pped, true)
+        else
+        SetEntityInvincible(pped, false)
+    end
+end)
+
 ------------------- Spawn Car -------------------
 RegisterNetEvent('esx_adminduty:SpawnVehicle')
 AddEventHandler('esx_adminduty:SpawnVehicle', function (model)
