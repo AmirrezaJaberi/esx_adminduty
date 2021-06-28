@@ -17,7 +17,7 @@ Config.Server = {
 -------- Tag --------
 Config.Tag = {
     enable = true,
-    color = { r = 255, g = 0, b = 0 }
+    color = "~r~"
 }
 
 -------- Log --------
