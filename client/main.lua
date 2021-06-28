@@ -425,7 +425,7 @@ Citizen.CreateThread(function ()
             z = z + 1.2
             local distance = Vdist2(vector3(cx,cy,cz), vector3(x,y,z))
             if label then
-                if distance < 30 and v.hide == false and GetPlayerServerId(PlayerId()) ~= v.src then
+                if distance < 60 and v.hide == false and GetPlayerServerId(PlayerId()) ~= v.src then
                     if DoesPlayerExistInArea(v.src) then
                         ESX.Game.Utils.DrawText3D(vector3(x,y,z), label .. GetPlayerName(GetPlayerFromServerId(v.src)), 1.5) 
                     end
