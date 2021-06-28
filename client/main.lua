@@ -8,13 +8,12 @@ Citizen.CreateThread(function()
 end)
 
 ----------------- Don't Change -------------------
-local IsSpecting = false
 local AdminTags  = {}
 local CanShowOwn = false
 local noclip     = false
 ----------------- Tag Status -----------------
-RegisterNetEvent('esx_adminduty:ChangeTagStatus')
-AddEventHandler('esx_adminduty:ChangeTagStatus', function (tags)
+RegisterNetEvent('esx_adminduty:GetTagData')
+AddEventHandler('esx_adminduty:GetTagData', function (tags)
     AdminTags = tags
 end)
 
@@ -369,56 +368,45 @@ function TeleportToWaypoint()
     end
 end
 
+------------ Infinity Onesync --------------
+function DoesPlayerExistInArea(source)
+    local Players = GetActivePlayers()
+
+    for k,v in pairs(Players) do
+        if GetPlayerServerId(v) == source then
+            return true
+        end
+	end
+	
+    return false
+end
+
+
 -------------- Admin Tag --------------
-if Config.Tag.enable then
-    Citizen.CreateThread(function ()
-        while true do
-            Citizen.Wait(0)
-            local currentPed = PlayerPedId()
-            local currentPos = GetEntityCoords(currentPed)
-            local cx,cy,cz = table.unpack(currentPos)
-            cz = cz + 1.2
-            local label = "~p~ ~r~"
-             if CanShowOwn then
-                DrawText3D(vector3(cx,cy,cz), label .. GetPlayerName(PlayerId()), 1.5)
-             end
-            for k, v in pairs(AdminTags) do
-                local adminPed = GetPlayerPed(GetPlayerFromServerId(v.source))
-                local adminCoords = GetEntityCoords(adminPed)
-                local x,y,z = table.unpack(adminCoords)
-                z = z + 1.2
-                local distance = GetDistanceBetweenCoords(vector3(cx,cy,cz), vector3(x,y,z), true)
-                if label then
-                    if distance < 5 and v.hide == false and GetPlayerServerId(PlayerId()) ~= v.source then
-                        DrawText3D(vector3(x,y,z), label .. GetPlayerName(GetPlayerFromServerId(v.source)), Config.Tag.color.r, Config.Tag.color.g, Config.Tag.color.b)
+Citizen.CreateThread(function ()
+    while true do
+        Citizen.Wait(0)
+        local currentPed = PlayerPedId()
+        local currentPos = GetEntityCoords(currentPed)
+        local cx,cy,cz = table.unpack(currentPos)
+        cz = cz + 1.2
+        local label = "~r~"
+         if CanShowOwn then
+             ESX.Game.Utils.DrawText3D(vector3(cx,cy,cz), label .. GetPlayerName(PlayerId()), 1.5)
+         end
+        for k, v in pairs(AdminTags) do
+            local adminPed = GetPlayerPed(GetPlayerFromServerId(v.src))
+            local adminCoords = GetEntityCoords(adminPed)
+            local x,y,z = table.unpack(adminCoords)
+            z = z + 1.2
+            local distance = Vdist2(vector3(cx,cy,cz), vector3(x,y,z))
+            if label then
+                if distance < 5 and v.hide == false and GetPlayerServerId(PlayerId()) ~= v.src then
+                    if DoesPlayerExistInArea(v.src) then
+                        ESX.Game.Utils.DrawText3D(vector3(x,y,z), label .. GetPlayerName(GetPlayerFromServerId(v.src)), 1.5) 
                     end
                 end
             end
         end
-    end)
-end
--------------- DrawText3D --------------
-function DrawText3D(x,y,z, text, r,g,b) 
-    local showing,_x,_y = World3dToScreen2d(x,y,z)
-    local px,py,pz = table.unpack(GetGameplayCamCoords())
-    local dist = #(vector3(px,py,pz)-vector3(x,y,z))
-
-    local andaze = (1/dist)*2
-    local fov = (1/GetGameplayCamFov())*100
-    local andaze = andaze*fov
-
-    if showing then
-        SetTextScale(0.0*andaze,Config.Size *andaze)
-        SetTextFont(0)
-        SetTextProportional(1)
-        SetTextColour(r, g, b, 255)
-        SetTextDropshadow(0, 0, 0, 0, 255)
-        SetTextEdge(2, 0, 0, 0, 150)
-        SetTextDropShadow()
-        SetTextOutline()
-        SetTextEntry("STRING")
-        SetTextCentre(1)
-        AddTextComponentString(text)
-        DrawText(_x,_y)
     end
-end
+end)
