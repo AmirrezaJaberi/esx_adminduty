@@ -17,7 +17,9 @@ New Admin Commands + ESX Admin Commands  + Admin Duty Sytem + Log + Tag 😃
 ```
 for example : 
    if xPlayer.getGroup() == "admin" then
+```
 Change to :
+```
    if xPlayer.getGroup() == "admin" or xPlayer.getGroup() == "superadmin" then
 ```
 
