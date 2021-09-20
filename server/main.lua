@@ -3,8 +3,19 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 ---------- Setting ----------
 local Admininfo     = {}
 
+---------- Call Backs ----------
+ESX.RegisterServerCallback('esx_adminduty:GetGroup', function(source, cb)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    if xPlayer.getGroup() == "admin" then
+        local perm = xPlayer.getGroup()
+        cb(perm)
+    else
+        -- Ban
+    end
+end)
+
 ---------- Info ----------
-RegisterCommand('info', function(source, args)
+RegisterCommand('info', function(source)
     local xPlayer = ESX.GetPlayerFromId(source)
     local Name = xPlayer.getName()
     local SteamN = GetPlayerName(source)
