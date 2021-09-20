@@ -25,49 +25,63 @@ end)
 ----------------- Teleport ----------------
 RegisterNetEvent('esx_adminduty:TeleportToCoords')
 AddEventHandler('esx_adminduty:TeleportToCoords', function (x , y , z)
-    local pped = PlayerPedId()
-    SetEntityCoords(pped, x, y, z, 0, 0, 0)
+    ESX.TriggerServerCallback('esx_adminduty:GetGroup', function(perm)
+        if perm == "admin" then
+            local pped = PlayerPedId()
+            SetEntityCoords(pped, x, y, z, 0, 0, 0)
+        end
+    end)
 end)
 
 
 ----------------- Duty Handeler ----------------
 RegisterNetEvent('esx_adminduty:DutyMe')
 AddEventHandler('esx_adminduty:DutyMe', function (can)
-    local pped = PlayerPedId()
-    if can and Config.UseGodeMode then
-        SetEntityInvincible(pped, true)
-        else
-        SetEntityInvincible(pped, false)
-    end
+    ESX.TriggerServerCallback('esx_adminduty:GetGroup', function(perm)
+        if perm == "admin" then
+            local pped = PlayerPedId()
+            if can and Config.UseGodeMode then
+                SetEntityInvincible(pped, true)
+                else
+                SetEntityInvincible(pped, false)
+            end
+        end
+    end)
 end)
 
 ------------------- Spawn Car -------------------
 RegisterNetEvent('esx_adminduty:SpawnVehicle')
 AddEventHandler('esx_adminduty:SpawnVehicle', function (model)
+    ESX.TriggerServerCallback('esx_adminduty:GetGroup', function(perm)
+        if perm == "admin" then
+            local pped = PlayerPedId()
+            local PCoords = GetEntityCoords(pped)
+            local VehMod = GetHashKey(model)
 
-    local pped = PlayerPedId()
-    local PCoords = GetEntityCoords(pped)
-    print(json.encode(PCoords))
-    local VehMod = GetHashKey(model)
+            RequestModel(VehMod)
 
-    RequestModel(VehMod)
-
-    while not HasModelLoaded(VehMod) do
-        Citizen.Wait(2000)
-    end
-     ESX.Game.SpawnVehicle(VehMod, vector3(PCoords.x, PCoords.y, PCoords.z), 100.0, function (veh)
-        SetPedIntoVehicle(pped, veh, -1)
+            while not HasModelLoaded(VehMod) do
+                Citizen.Wait(2000)
+            end
+             ESX.Game.SpawnVehicle(VehMod, vector3(PCoords.x, PCoords.y, PCoords.z), 100.0, function (veh)
+                SetPedIntoVehicle(pped, veh, -1)
+            end)
+        end
     end)
 end)
 
 ------------------- Delete Vehicle -------------------
 RegisterNetEvent('esx_adminduty:DeleteVehicle')
 AddEventHandler('esx_adminduty:DeleteVehicle', function ()
-    local pped = PlayerPedId()
-    if IsPedInAnyVehicle(pped, true) then
-        local veh = GetVehiclePedIsIn(pped, false)
-        ESX.Game.DeleteVehicle(veh)
-    end
+    ESX.TriggerServerCallback('esx_adminduty:GetGroup', function(perm)
+        if perm == "admin" then
+            local pped = PlayerPedId()
+            if IsPedInAnyVehicle(pped, true) then
+                local veh = GetVehiclePedIsIn(pped, false)
+                ESX.Game.DeleteVehicle(veh)
+            end
+        end
+    end)
 end)
 
 ------------------- Add Command Suggestion -------------------
